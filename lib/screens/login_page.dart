@@ -67,6 +67,9 @@ class _LoginPageState extends State<LoginPage> {
                 padding: EdgeInsets.fromLTRB(30, 10, 30, 10),
                 child: Column(
                   children: [
+                    SizedBox(
+                      height: 20.0,
+                    ),
                     ElevatedButton(
                       child: Text("Log In",
                           style: GoogleFonts.raleway(
@@ -92,7 +95,7 @@ class _LoginPageState extends State<LoginPage> {
                       },
                     ),
                     SizedBox(
-                      height: 30.0,
+                      height: 20.0,
                     ),
                     ElevatedButton(
                       child: Text("Sign Up",
