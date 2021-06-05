@@ -19,6 +19,35 @@ class _SignUpPageState extends State<SignUpPage> {
     });
   }
 
+  bool changeButton = false;
+  final _formKey = GlobalKey<FormState>();
+
+  moveToLogin(BuildContext context) async {
+    if (_formKey.currentState!.validate()) {
+      setState(
+        () {
+          changeButton = true;
+        },
+      );
+      await Future.delayed(
+        Duration(
+          milliseconds: 300,
+        ),
+      );
+      await Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => MainLoginPage(),
+        ),
+      );
+      setState(
+        () {
+          changeButton = false;
+        },
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,31 +57,40 @@ class _SignUpPageState extends State<SignUpPage> {
           width: double.maxFinite,
           height: double.maxFinite,
           decoration: BoxDecoration(
-              image: DecorationImage(
-            image: AssetImage('assets/images/5.jpg'),
-            fit: BoxFit.cover,
-          )),
+            image: DecorationImage(
+              image: AssetImage('assets/images/5.jpg'),
+              fit: BoxFit.cover,
+            ),
+          ),
           child: SingleChildScrollView(
-            child: Column(children: [
-              SizedBox(
-                height: 120.0,
-              ),
-              Text(
-                "Create Account",
-                style: GoogleFonts.raleway(
-                  fontStyle: FontStyle.normal,
-                  fontSize: 40.0,
-                  fontWeight: FontWeight.w700,
-                ),
-              ),
-              SizedBox(
-                height: 150.0,
-              ),
-              Column(children: [
-                Padding(
-                    padding: EdgeInsets.fromLTRB(30, 10, 30, 10),
-                    child: TextFormField(
+            child: Padding(
+              padding: const EdgeInsets.fromLTRB(30, 0, 30, 0),
+              child: Form(
+                key: _formKey,
+                child: Column(
+                  children: [
+                    SizedBox(
+                      height: 120.0,
+                    ),
+                    Text(
+                      "Create Account",
+                      style: GoogleFonts.raleway(
+                        fontStyle: FontStyle.normal,
+                        fontSize: 40.0,
+                        fontWeight: FontWeight.w700,
+                      ),
+                    ),
+                    SizedBox(
+                      height: 150.0,
+                    ),
+                    TextFormField(
                       cursorColor: Colors.white,
+                      validator: (value) {
+                        if (value!.isEmpty) {
+                          return 'Name cannot be empty';
+                        }
+                        return null;
+                      },
                       decoration: InputDecoration(
                         fillColor: Colors.white,
                         hoverColor: Colors.white,
@@ -76,11 +114,15 @@ class _SignUpPageState extends State<SignUpPage> {
                               BorderSide(color: Colors.white, width: 3.0),
                         ),
                       ),
-                    )),
-                Padding(
-                    padding: EdgeInsets.fromLTRB(30, 10, 30, 10),
-                    child: TextFormField(
+                    ),
+                    TextFormField(
                       cursorColor: Colors.white,
+                      validator: (value) {
+                        if (value!.isEmpty) {
+                          return 'Email cannot be empty';
+                        }
+                        return null;
+                      },
                       decoration: InputDecoration(
                         fillColor: Colors.white,
                         hoverColor: Colors.white,
@@ -104,52 +146,57 @@ class _SignUpPageState extends State<SignUpPage> {
                               BorderSide(color: Colors.white, width: 3.0),
                         ),
                       ),
-                    )),
-                Padding(
-                  padding: EdgeInsets.fromLTRB(30, 10, 30, 10),
-                  child: TextFormField(
-                    obscureText: _obscureText,
-                    cursorColor: Colors.white,
-                    decoration: InputDecoration(
-                      fillColor: Colors.white,
-                      hoverColor: Colors.white,
-                      prefixIcon: Icon(
-                        Icons.lock,
-                        color: Colors.white,
-                      ),
-                      suffixIcon: IconButton(
-                        icon: Icon(
-                          _obscureText
-                              ? Icons.visibility_off
-                              : Icons.visibility,
+                    ),
+                    SizedBox(
+                      height: 10.0,
+                    ),
+                    TextFormField(
+                      obscureText: _obscureText,
+                      validator: (value) {
+                        if (value!.isEmpty) {
+                          return 'Password cannot be empty';
+                        }
+                        return null;
+                      },
+                      cursorColor: Colors.white,
+                      decoration: InputDecoration(
+                        fillColor: Colors.white,
+                        hoverColor: Colors.white,
+                        prefixIcon: Icon(
+                          Icons.lock,
+                          color: Colors.white,
                         ),
-                        color: Colors.white,
-                        onPressed: () {
-                          _toggle();
-                        },
-                      ),
-                      border: UnderlineInputBorder(),
-                      hintText: "Password",
-                      hintStyle: GoogleFonts.raleway(
-                        fontStyle: FontStyle.normal,
-                        fontSize: 20.0,
-                        fontWeight: FontWeight.w500,
-                      ),
-                      focusColor: Colors.white,
-                      enabledBorder: UnderlineInputBorder(
-                        borderSide: BorderSide(color: Colors.white),
-                      ),
-                      focusedBorder: UnderlineInputBorder(
-                        borderSide: BorderSide(color: Colors.white, width: 3.0),
+                        suffixIcon: IconButton(
+                          icon: Icon(
+                            _obscureText
+                                ? Icons.visibility_off
+                                : Icons.visibility,
+                          ),
+                          color: Colors.white,
+                          onPressed: () {
+                            _toggle();
+                          },
+                        ),
+                        border: UnderlineInputBorder(),
+                        hintText: "Password",
+                        hintStyle: GoogleFonts.raleway(
+                          fontStyle: FontStyle.normal,
+                          fontSize: 20.0,
+                          fontWeight: FontWeight.w500,
+                        ),
+                        focusColor: Colors.white,
+                        enabledBorder: UnderlineInputBorder(
+                          borderSide: BorderSide(color: Colors.white),
+                        ),
+                        focusedBorder: UnderlineInputBorder(
+                          borderSide:
+                              BorderSide(color: Colors.white, width: 3.0),
+                        ),
                       ),
                     ),
-                  ),
-                ),
-              ]),
-              Container(
-                padding: EdgeInsets.fromLTRB(30, 10, 30, 0),
-                child: Column(
-                  children: [
+                    SizedBox(
+                      height: 30.0,
+                    ),
                     ElevatedButton(
                       child: Text("Sign Up",
                           style: GoogleFonts.raleway(
@@ -166,13 +213,7 @@ class _SignUpPageState extends State<SignUpPage> {
                           textStyle: TextStyle(
                             color: Colors.black,
                           )),
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => SignUpPage()),
-                        );
-                        setState(() {});
-                      },
+                      onPressed: () => moveToLogin(context),
                     ),
                     SizedBox(
                       height: 10.0,
@@ -234,7 +275,7 @@ class _SignUpPageState extends State<SignUpPage> {
                       },
                     ),
                     SizedBox(
-                      height: 10.0,
+                      height: 20.0,
                     ),
                     ElevatedButton(
                       // icon: Icon(
@@ -269,7 +310,7 @@ class _SignUpPageState extends State<SignUpPage> {
                   ],
                 ),
               ),
-            ]),
+            ),
           ),
         ),
       ),

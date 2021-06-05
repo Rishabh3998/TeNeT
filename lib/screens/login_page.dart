@@ -12,123 +12,151 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Stack(children: [
-      Center(
-        child: Container(
-          width: double.maxFinite,
-          height: double.maxFinite,
-          decoration: BoxDecoration(
-              image: DecorationImage(
-            image: AssetImage('assets/images/7.jpg'),
-            fit: BoxFit.cover,
-          )),
-          child: SingleChildScrollView(
-            child: Column(children: [
-              SizedBox(
-                height: 100.0,
-              ),
-              Text(
-                "TeNet",
-                style: GoogleFonts.raleway(
-                  fontStyle: FontStyle.normal,
-                  fontSize: 30.0,
-                  fontWeight: FontWeight.w700,
+      // appBar: AppBar(
+      //   backgroundColor: Colors.black,
+      //   elevation: 0.0,
+      //   title: Text(
+      //     'TeNeT',
+      //     style: GoogleFonts.raleway(
+      //       color: Colors.white,
+      //       fontSize: 30,
+      //       fontWeight: FontWeight.bold,
+      //     ),
+      //   ),
+      // ),
+      body: Stack(
+        children: [
+          Center(
+            child: Container(
+              width: double.maxFinite,
+              height: double.maxFinite,
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage('assets/images/7.jpg'),
+                  fit: BoxFit.cover,
                 ),
               ),
-              SizedBox(
-                height: 400.0,
-              ),
-              Text(
-                "Wallpaper App",
-                style: GoogleFonts.raleway(
-                  fontStyle: FontStyle.normal,
-                  fontSize: 40.0,
-                  fontWeight: FontWeight.w700,
-                ),
-              ),
-              SizedBox(
-                height: 10.0,
-              ),
-              Padding(
-                padding: EdgeInsets.fromLTRB(30, 10, 30, 10),
-                child: Text(
-                  "We provide latest and attractive wallpapers on every week",
-                  style: GoogleFonts.raleway(
-                    fontStyle: FontStyle.normal,
-                    fontSize: 15.0,
-                    fontWeight: FontWeight.w500,
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: 10.0,
-              ),
-              Container(
-                padding: EdgeInsets.fromLTRB(30, 10, 30, 10),
+              child: SingleChildScrollView(
                 child: Column(
                   children: [
                     SizedBox(
-                      height: 20.0,
+                      height: 100.0,
                     ),
-                    ElevatedButton(
-                      child: Text("Log In",
-                          style: GoogleFonts.raleway(
-                            fontStyle: FontStyle.normal,
-                            color: Colors.black,
-                            fontWeight: FontWeight.w600,
-                            fontSize: 19.0,
-                          )),
-                      style: ElevatedButton.styleFrom(
-                          primary: Colors.white,
-                          minimumSize: Size(double.infinity, 50.0),
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(10.0)),
-                          textStyle: TextStyle(
-                            color: Colors.black,
-                          )),
-                      onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => MainLoginPage()));
-                        setState(() {});
-                      },
+                    Text(
+                      "TeNet",
+                      style: GoogleFonts.raleway(
+                        fontStyle: FontStyle.normal,
+                        fontSize: 30.0,
+                        fontWeight: FontWeight.w700,
+                      ),
                     ),
                     SizedBox(
-                      height: 20.0,
+                      height: 400.0,
                     ),
-                    ElevatedButton(
-                      child: Text("Sign Up",
-                          style: GoogleFonts.raleway(
-                            fontStyle: FontStyle.normal,
-                            color: Colors.white,
-                            fontWeight: FontWeight.w600,
-                            fontSize: 19.0,
-                          )),
-                      style: ElevatedButton.styleFrom(
-                          primary: Colors.transparent,
-                          minimumSize: Size(double.infinity, 50.0),
-                          side: BorderSide(width: 1.0, color: Colors.white),
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(10.0)),
-                          textStyle: TextStyle(
-                            color: Colors.black,
-                          )),
-                      onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => SignUpPage()));
-                        setState(() {});
-                      },
+                    Text(
+                      "Wallpaper App",
+                      style: GoogleFonts.raleway(
+                        fontStyle: FontStyle.normal,
+                        fontSize: 40.0,
+                        fontWeight: FontWeight.w700,
+                      ),
+                    ),
+                    SizedBox(
+                      height: 10.0,
+                    ),
+                    Padding(
+                      padding: EdgeInsets.fromLTRB(30, 10, 30, 10),
+                      child: Text(
+                        "We provide latest and attractive wallpapers on every week",
+                        style: GoogleFonts.raleway(
+                          fontStyle: FontStyle.normal,
+                          fontSize: 15.0,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 10.0,
+                    ),
+                    Container(
+                      padding: EdgeInsets.fromLTRB(30, 10, 30, 10),
+                      child: Column(
+                        children: [
+                          SizedBox(
+                            height: 20.0,
+                          ),
+                          ElevatedButton(
+                            child: Text(
+                              "Log In",
+                              style: GoogleFonts.raleway(
+                                fontStyle: FontStyle.normal,
+                                color: Colors.black,
+                                fontWeight: FontWeight.w600,
+                                fontSize: 19.0,
+                              ),
+                            ),
+                            style: ElevatedButton.styleFrom(
+                              primary: Colors.white,
+                              minimumSize: Size(double.infinity, 50.0),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10.0),
+                              ),
+                              textStyle: TextStyle(
+                                color: Colors.black,
+                              ),
+                            ),
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => MainLoginPage(),
+                                ),
+                              );
+                              setState(() {});
+                            },
+                          ),
+                          SizedBox(
+                            height: 20.0,
+                          ),
+                          ElevatedButton(
+                            child: Text(
+                              "Sign Up",
+                              style: GoogleFonts.raleway(
+                                fontStyle: FontStyle.normal,
+                                color: Colors.white,
+                                fontWeight: FontWeight.w600,
+                                fontSize: 19.0,
+                              ),
+                            ),
+                            style: ElevatedButton.styleFrom(
+                              primary: Colors.transparent,
+                              minimumSize: Size(double.infinity, 50.0),
+                              side: BorderSide(width: 1.0, color: Colors.white),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10.0),
+                              ),
+                              textStyle: TextStyle(
+                                color: Colors.black,
+                              ),
+                            ),
+                            onPressed: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => SignUpPage()));
+                              setState(() {});
+                            },
+                          ),
+                        ],
+                      ),
                     ),
                   ],
                 ),
               ),
-            ]),
+            ),
           ),
-        ),
+        ],
       ),
-    ]));
+    );
   }
 }
