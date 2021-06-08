@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "341289723993",
+    "project_id": "tenet-79f82",
+    "storage_bucket": "tenet-79f82.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:341289723993:android:c80b716641218d546ae948",
+        "android_client_info": {
+          "package_name": "com.example.login_page"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "341289723993-i0u3m2hks42rldba72s013dpeidvjv6t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA6ahOZvZx23kxpfBlKS1_ypurG_C4CSJ4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "341289723993-i0u3m2hks42rldba72s013dpeidvjv6t.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
